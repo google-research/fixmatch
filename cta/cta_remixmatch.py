@@ -19,7 +19,7 @@ from absl import flags
 
 from cta.lib.train import CTAClassifySemi
 from libml import utils, data
-from remixmatch import ReMixMatch
+from remixmatch_no_cta import ReMixMatch
 
 FLAGS = flags.FLAGS
 
