@@ -85,6 +85,27 @@ Just pass more GPUs and fixmatch automatically scales to them, here we assign GP
 CUDA_VISIBLE_DEVICES=4,5,6,7 python fixmatch.py --filters=32 --dataset=cifar10.3@40-1 --train_dir ./experiments/fixmatch
 ```
 
+
+#### Flags
+
+```bash
+python fixmatch.py --help
+# The following option might be too slow to be really practical.
+# python fixmatch.py --helpfull
+# So instead I use this hack to find the flags:
+fgrep -R flags.DEFINE libml fixmatch.py
+```
+
+The `--augment` flag can use a little more explanation. It is composed of 3 values, for example `d.d.d`
+(`d`=default augmentation, for example shift/mirror, `x`=identity, e.g. no augmentation, `ra`=rand-augment,
+ `rac`=rand-augment + cutout):
+- the first `d` refers to data augmentation to apply to the labeled example. 
+- the second `d` refers to data augmentation to apply to the weakly augmented unlabeled example. 
+- the third `d` refers to data augmentation to apply to the strongly augmented unlabeled example. For the strong
+augmentation, `d` is followed by `CTAugment` for `fixmatch.py` and code inside `cta/` folder.
+
+
+
 ### Valid dataset names
 ```bash
 for dataset in cifar10 svhn svhn_noextra; do
