@@ -45,7 +45,7 @@ class ICT(models.MultiModel):
         y = tf.reshape(tf.transpose(y_in, [1, 0, 2, 3, 4]), [-1] + hwc)
         y_1, y_2 = tf.split(y, 2)
 
-        mix = tf.distributions.Beta(beta, beta).sample([tf.shape(x_in)[0], 1, 1, 1])
+        mix = tf.distributions.Beta(beta, beta).sample([tf.shape(xt_in)[0], 1, 1, 1])
         mix = tf.maximum(mix, 1 - mix)
 
         classifier = lambda x, **kw: self.classifier(x, **kw, **kwargs).logits
