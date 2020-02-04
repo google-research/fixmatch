@@ -53,7 +53,8 @@ CUDA_VISIBLE_DEVICES= scripts/create_split.py --seed=1 --size=5000 $ML_DATA/SSL2
 ```
 
 ### ImageNet
-Coming Soon™
+
+Codebase for ImageNet experiments located in the [imagenet subdirectory](https://github.com/google-research/fixmatch/tree/master/imagenet).
 
 ## Running
 
