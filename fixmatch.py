@@ -94,7 +94,7 @@ class FixMatch(CTAReMixMatch):
         tf.summary.scalar('monitors/lr', lr)
 
         # Compute logits for xt_in and y_in
-        classifier = lambda x, **kw: self.classifier(x, **kw).logits
+        classifier = lambda x, **kw: self.classifier(x, **kw, **kwargs).logits
         skip_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
         x = utils.interleave(tf.concat([xt_in, y_in[:, 0], y_in[:, 1]], 0), 2 * uratio + 1)
         logits = utils.para_cat(lambda x: classifier(x, training=True), x)

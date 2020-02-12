@@ -37,7 +37,7 @@ class AB_FixMatch_SharpenConditionalConsistency(FixMatch):
         lr *= tf.cos(lrate * (7 * np.pi) / (2 * 8))
         tf.summary.scalar('monitors/lr', lr)
 
-        classifier = lambda x, **kw: self.classifier(x, **kw).logits
+        classifier = lambda x, **kw: self.classifier(x, **kw, **kwargs).logits
         skip_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
         x = utils.interleave(tf.concat([xt_in, y_in[:, 0], y_in[:, 1]], 0), 2 * uratio + 1)
         logits = utils.para_cat(lambda x: classifier(x, training=True), x)
