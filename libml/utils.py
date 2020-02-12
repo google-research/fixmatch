@@ -78,10 +78,10 @@ def find_latest_checkpoint(dir, glob_term='model.ckpt-*.meta'):
 
 def get_latest_global_step(dir):
     """Loads the global step from the latest checkpoint in directory.
-  
+
     Args:
       dir: string, path to the checkpoint directory.
-  
+
     Returns:
       int, the global step of the latest checkpoint or 0 if none was found.
     """
@@ -220,6 +220,16 @@ def para_cat(fn, *args):
     if isinstance(outputs[0], (tuple, list)):
         return [tf.concat(x, axis=0) for x in zip(*outputs)]
     return tf.concat(outputs, axis=0)
+
+
+def interleave(x, batch):
+    s = x.get_shape().as_list()
+    return tf.reshape(tf.transpose(tf.reshape(x, [-1, batch] + s[1:]), [1, 0] + list(range(2, 1+len(s)))), [-1] + s[1:])
+
+
+def de_interleave(x, batch):
+    s = x.get_shape().as_list()
+    return tf.reshape(tf.transpose(tf.reshape(x, [batch, -1] + s[1:]), [1, 0] + list(range(2, 1+len(s)))), [-1] +s[1:])
 
 
 def combine_dicts(*args):
