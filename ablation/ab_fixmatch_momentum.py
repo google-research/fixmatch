@@ -38,9 +38,11 @@ class AB_FixMatch_Momentum(CTAReMixMatch):
         tf.summary.scalar('monitors/lr', lr)
 
         # Compute logits for xt_in and y_in
-        classifier = lambda x, **kw: self.classifier(x, **kw, **kwargs).logits
+        classifier = lambda x, **kw: self.classifier(x, **kw).logits
         skip_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
-        logits = utils.para_cat(lambda x: classifier(x, training=True), tf.concat([xt_in, y_in[:, 0], y_in[:, 1]], 0))
+        x = utils.interleave(tf.concat([xt_in, y_in[:, 0], y_in[:, 1]], 0), 2 * uratio + 1)
+        logits = utils.para_cat(lambda x: classifier(x, training=True), x)
+        logits = utils.de_interleave(logits, 2 * uratio+1)
         post_ops = [v for v in tf.get_collection(tf.GraphKeys.UPDATE_OPS) if v not in skip_ops]
         logits_x = logits[:batch]
         logits_weak, logits_strong = tf.split(logits[batch:], 2)
