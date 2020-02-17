@@ -41,7 +41,7 @@ done
 # It will be used as unlabelled data.
   python -B save_sharded_data.py \
     --input_dir="${IMAGENET_DIR}" \
-    --sharding_file="data_splits/files2shards_train}.txt" \
+    --sharding_file="data_splits/files2shards_train.txt" \
     --output_file_prefix="${SSL_IMAGENET_DIR}/train" \
     -- "$@"
 
