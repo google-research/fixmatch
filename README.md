@@ -86,6 +86,21 @@ Just pass more GPUs and fixmatch automatically scales to them, here we assign GP
 CUDA_VISIBLE_DEVICES=4,5,6,7 python fixmatch.py --filters=32 --dataset=cifar10.3@40-1 --train_dir ./experiments/fixmatch
 ```
 
+# Adding datasets
+You can add custom datasets into the codebase by taking the following steps:
+
+1. Add a function to acquire the dataset to `scripts/create_datasets.py` similar to the present ones, e.g. `_load_cifar10`. 
+You need to call `_encode_png` to create encoded strings from the original images.
+It should return a dictionary of the format 
+`{'train' : {'images': <encoded 4D NHWC>, 'labels': <1D int array>},
+'test' : {'images': <encoded 4D NHWC>, 'labels': <1D int array>}}`
+2. Add the dataset to the variable `CONFIGS` in `scripts/create_datasets.py` with the previous function as loader. 
+You can now call the `create_datasets` script to obtain a tf record for it.
+3. Use the `create_unlabeled` and `create_split` script to create unlabeled and differently split tf records as above in the *Install Datasets* section.
+4. In `libml/data.py` add your dataset in the `create_datasets` function. The specified "label" for the dataset has to match
+the create splits for your dataset. You will need to specify the corresponding variables if your dataset 
+has a different # of classes than 10 and different resolution and # of channels than 32x32x3
+5. In `libml/augment.py` add your dataset to the `DEFAULT_AUGMENT` variable. Primitives "ms" , "s", "m" represent mirror, shift and mirror+shift. 
 
 #### Flags
 
