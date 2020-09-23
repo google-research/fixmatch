@@ -154,9 +154,9 @@ You can add custom datasets into the codebase by taking the following steps:
 
 1. Add a function to acquire the dataset to `scripts/create_datasets.py` similar to the present ones, e.g. `_load_cifar10`. 
 You need to call `_encode_png` to create encoded strings from the original images.
-It should return a dictionary of the format 
+The created function should return a dictionary of the format 
 `{'train' : {'images': <encoded 4D NHWC>, 'labels': <1D int array>},
-'test' : {'images': <encoded 4D NHWC>, 'labels': <1D int array>}}`
+'test' : {'images': <encoded 4D NHWC>, 'labels': <1D int array>}}` .
 2. Add the dataset to the variable `CONFIGS` in `scripts/create_datasets.py` with the previous function as loader. 
 You can now run the `create_datasets` script to obtain a tf record for it.
 3. Use the `create_unlabeled` and `create_split` script to create unlabeled and differently split tf records as above in the *Install Datasets* section.
