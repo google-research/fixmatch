@@ -146,7 +146,7 @@ class DataSet:
                     sloppy=True))
         else:
             dataset = tf.data.TFRecordDataset(filenames)
-        return cls(tf.data.TFRecordDataset(filenames),
+        return cls(dataset,
                    augment_fn=augment_fn,
                    parse_fn=parse_fn,
                    image_shape=image_shape)
