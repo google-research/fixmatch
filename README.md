@@ -5,6 +5,8 @@ Kihyuk Sohn, David Berthelot, Chun-Liang Li, Zizhao Zhang, Nicholas Carlini, Eki
 
 This is not an officially supported Google product.
 
+![FixMatch diagram](media/FixMatch%20diagram.png)
+
 ## Setup
 
 **Important**: `ML_DATA` is a shell environment variable that should point to the location where the datasets are installed. See the *Install datasets* section for more details.
