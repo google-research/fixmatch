@@ -169,7 +169,7 @@ has a different # of classes than 10 and different resolution and # of channels 
 
 ## Citing this work
 
-```
+```bibtex
 @article{sohn2020fixmatch,
     title={FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence},
     author={Kihyuk Sohn and David Berthelot and Chun-Liang Li and Zizhao Zhang and Nicholas Carlini and Ekin D. Cubuk and Alex Kurakin and Han Zhang and Colin Raffel},
