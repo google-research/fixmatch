@@ -15,7 +15,7 @@
 import functools
 import itertools
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from absl import flags
 
 from libml import layers

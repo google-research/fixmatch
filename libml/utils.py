@@ -17,7 +17,7 @@ import os
 import re
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from absl import flags, logging
 from tensorflow.python.client import device_lib
 
@@ -49,6 +49,7 @@ def setup_main():
 def setup_tf():
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
     logging.set_verbosity(logging.ERROR)
+    tf.disable_v2_behavior()
 
 
 def smart_shape(x):

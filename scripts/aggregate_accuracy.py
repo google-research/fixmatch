@@ -20,7 +20,7 @@ import json
 import sys
 import threading
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import tqdm
 from absl import app
 from absl import flags

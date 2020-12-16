@@ -13,7 +13,7 @@
 # limitations under the License.
 """Random augment."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 from augment import augment_ops
 

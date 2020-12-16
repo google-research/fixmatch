@@ -22,7 +22,7 @@ from __future__ import print_function
 
 import math
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 import third_party.auto_augment.custom_ops as ops
 

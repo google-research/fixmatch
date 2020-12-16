@@ -20,7 +20,7 @@ import multiprocessing
 import random
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from absl import flags
 
 from libml import utils, ctaugment

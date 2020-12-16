@@ -20,12 +20,10 @@ import math
 import os
 import time
 
+import tensorflow.compat.v1 as tf
 from absl import flags
 from absl import logging
 from easydict import EasyDict
-
-import tensorflow as tf
-
 
 flags.DEFINE_string(
     'tpu',

@@ -13,7 +13,7 @@
 # limitations under the License.
 """Utils for learning rate schedule."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 class ConfigurableLearningRateSchedule(

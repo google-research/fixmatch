@@ -18,7 +18,7 @@ import os.path
 import shutil
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from absl import flags
 from tqdm import trange, tqdm
 

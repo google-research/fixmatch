@@ -13,10 +13,9 @@
 # limitations under the License.
 """Control theory augment."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 from augment import augment_ops
-
 
 IMAGENET_AUG_OPS = [
     'AutoContrastBlend',

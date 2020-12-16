@@ -13,12 +13,11 @@
 # limitations under the License.
 """Fixmatch semi-supervised training code."""
 
+import tensorflow.compat.v1 as tf
 from absl import app
 from absl import flags
 from absl import logging
 from easydict import EasyDict
-
-import tensorflow as tf
 
 import training
 from augment.augment import create_ssl_augmenter
@@ -26,7 +25,6 @@ from datasets import datasets
 from models import resnet50_model
 from utils import ema
 from utils.learning_rate import ConfigurableLearningRateSchedule
-
 
 FLAGS = flags.FLAGS
 

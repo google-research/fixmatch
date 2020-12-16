@@ -19,7 +19,7 @@ Related papers/blogs:
 - http://torch.ch/blog/2016/02/04/resnets.html
 """
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 backend = tf.keras.backend

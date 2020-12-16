@@ -17,14 +17,11 @@
 import os
 import time
 
+import apache_beam as beam
+import tensorflow.compat.v1 as tf
 from absl import app
 from absl import flags
-
-import apache_beam as beam
 from apache_beam.options.pipeline_options import PipelineOptions
-
-import tensorflow as tf
-
 
 FLAGS = flags.FLAGS
 

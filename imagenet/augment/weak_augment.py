@@ -13,7 +13,7 @@
 # limitations under the License.
 """Various weak agumentations."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def flip_augmentation(image):

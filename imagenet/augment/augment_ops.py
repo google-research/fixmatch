@@ -15,9 +15,8 @@
 
 import math
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 import tensorflow_addons as tfa
-
 
 # Default replace value
 REPLACE_VALUE = 128
