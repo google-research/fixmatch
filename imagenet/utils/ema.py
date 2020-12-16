@@ -13,7 +13,7 @@
 # limitations under the License.
 """Helper functions for exponential moving average."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def assign_ema_vars_from_initial_values(ema_variables, initial_values):

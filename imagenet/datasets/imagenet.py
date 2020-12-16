@@ -14,12 +14,11 @@
 """Efficient ImageNet input pipeline using tf.data.Dataset."""
 
 import os
+
+import tensorflow.compat.v1 as tf
 from absl import flags
 
-import tensorflow as tf
-
-
-IMAGENET_BUFFER_SIZE = 16 * 1024 * 1024     # 16 MiB
+IMAGENET_BUFFER_SIZE = 16 * 1024 * 1024  # 16 MiB
 IMAGENET_FETCH_CYCLE_LENGTH = 16
 IMAGENET_SHUFFLE_BUFFER_SIZE = 1024
 IMAGENET_PREPROCESSING_THREADS = 2

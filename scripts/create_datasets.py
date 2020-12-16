@@ -26,7 +26,7 @@ from urllib import request
 
 import numpy as np
 import scipy.io
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 from absl import app
 from tqdm import trange
 

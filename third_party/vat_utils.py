@@ -1,6 +1,6 @@
 """Utilities derived from the VAT code."""
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
 
 def generate_perturbation(x, logit, forward, epsilon, xi=1e-6):
